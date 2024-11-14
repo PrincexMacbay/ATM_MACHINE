@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to InfoSuper Bank</title>
+    <style>
+        .atm-container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+            margin: center;
+        }
+
+        .screen-container {
+            width: 398px;
+            height: 308px;
+            left: 95px;
+            top: 79px;
+            position: absolute;
+        }
+
+        .screen {
+            width: 398px;
+            height: 308px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        .pin-message {
+            width: 199px;
+            left: 88px;
+            top: 111px;
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .keypad-button {
+            width: 54px;
+            height: 74px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .control-button {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        .welcome-text {
+            left: 131px;
+            top: 135px;
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            left: 100px;
+            top: 94px;
+            position: absolute;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        /* Specific keypad button positions */
+        .keypad-1 {
+            left: 125px;
+            top: 233px;
+        }
+
+        .keypad-2 {
+            left: 195px;
+            top: 233px;
+        }
+
+        .keypad-3 {
+            left: 265px;
+            top: 233px;
+
+        }
+
+        .keypad-4 {
+            left: 335px;
+            top: 233px;
+        }
+
+        .keypad-5 {
+            left: 405px;
+            top: 233px;
+        }
+
+        /* Control button positions */
+        .control-right-top {
+            left: 516px;
+            top: 270px;
+        }
+
+        .control-right-bottom {
+            left: 516px;
+            top: 339px;
+        }
+
+        .control-left-top {
+            left: 24px;
+            top: 265px;
+        }
+
+        .control-left-bottom {
+            left: 24px;
+            top: 339px;
+        }
+
+        .pin-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+        }
+
+        .pin-message {
+            width: 199px;
+            left: 88px;
+            top: 111px;
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="atm-container">
+        <div class="screen-container">
+            <div class="screen"></div>
+            <div class="pin-message">
+                PLEASE INSERT YOUR PIN BELOW
+            </div>
+        </div>
+
+        <!-- Keypad buttons -->
+        <input id="pin1" class="keypad-button keypad-1 pin-input" maxlength="1" type="text">
+        <input id="pin2" class="keypad-button keypad-2 pin-input" maxlength="1" type="text">
+        <input id="pin3" class="keypad-button keypad-3 pin-input" maxlength="1" type="text">
+        <input id="pin4" class="keypad-button keypad-4 pin-input" maxlength="1" type="text">
+        <input id="pin5" class="keypad-button keypad-5 pin-input" maxlength="1" type="text">
+        <!-- Control buttons -->
+        <div class="control-button control-right-top"></div>
+        <div class="control-button control-right-bottom"></div>
+        <div class="control-button control-left-top"></div>
+        <div class="control-button control-left-bottom"></div>
+
+        <!-- Welcome text and date -->
+        <div class="welcome-text">
+            WELCOME TO INFOSUPER BANK!
+        </div>
+        <div class="location-date" id="currentDate">
+            <!-- Delta State, PTI Road 06/11/2024 -->
+        </div>
+    </div>
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+
+        // Function to validate PIN and redirect
+        function validatePIN() {
+            const pin1 = document.getElementById('pin1').value;
+            const pin2 = document.getElementById('pin2').value;
+            const pin3 = document.getElementById('pin3').value;
+            const pin4 = document.getElementById('pin4').value;
+            const pin5 = document.getElementById('pin5').value;
+
+            const enteredPin = pin1 + pin2 + pin3 + pin4 + pin5; // Concatenate the PIN digits
+            const correctPin = "14114";
+
+            if (enteredPin === correctPin) {
+                window.location.href = 'account_type.html'; // Redirect to account_type.html
+            } else {
+                alert("Invalid PIN. Please try again.");
+            }
+        }
+
+        // Add event listeners to handle input changes
+        const pinFields = document.querySelectorAll('.pin-input');
+        pinFields.forEach((field, index) => {
+            field.addEventListener('input', function () {
+                // Move to the next field when a digit is entered
+                if (this.value.length === 1 && index < pinFields.length - 1) {
+                    pinFields[index + 1].focus();
+                }
+
+                // Check if the PIN is complete (all fields filled)
+                if (Array.from(pinFields).every(field => field.value.length === 1)) {
+                    validatePIN();
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+
+</html>

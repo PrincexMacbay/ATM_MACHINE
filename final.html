@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+        }
+
+        .receipt-box {
+            width: 398px;
+            height: 328px;
+            left: 95px;
+            top: 79px;
+            position: absolute;
+        }
+
+        .receipt-background {
+            width: 398px;
+            height: 328px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        .thank-you-text {
+            width: 276px;
+            height: 15px;
+            left: 61px;
+            top: 76px;
+            position: absolute;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .retrieve-card-text {
+            width: 298px;
+            height: 15px;
+            left: 56px;
+            top: 265px;
+            position: absolute;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .button {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        .button-right-top {
+            left: 516px;
+            top: 293px;
+        }
+
+        .button-right-bottom {
+            left: 516px;
+            top: 353px;
+        }
+
+        .button-left-top {
+            left: 18px;
+            top: 293px;
+        }
+
+        .button-left-bottom {
+            left: 18px;
+            top: 359px;
+        }
+
+        .transaction-title {
+            width: 328px;
+            left: 132px;
+            top: 123px;
+            position: absolute;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            left: 100px;
+            top: 87px;
+            position: absolute;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        .card-shadow {
+            width: 114px;
+            height: 60px;
+            left: 207px;
+            top: 242.99px;
+            position: absolute;
+            transform: rotate(-26.01deg);
+            transform-origin: 0 0;
+            background: #6D6C6C;
+            border-radius: 8px;
+        }
+
+        .card-stripe {
+            width: 113.32px;
+            height: 10px;
+            left: 213.08px;
+            top: 254.95px;
+            position: absolute;
+            transform: rotate(-26.33deg);
+            transform-origin: 0 0;
+            background: rgba(0, 100, 0, 0.32);
+        }
+
+        .card-stripe-light {
+            width: 81px;
+            height: 6px;
+            left: 236px;
+            top: 263.15px;
+            position: absolute;
+            transform: rotate(-25.72deg);
+            transform-origin: 0 0;
+            background: rgba(217, 217, 217, 0.70);
+        }
+
+        .card {
+            width: 109px;
+            height: 55px;
+            left: 245px;
+            top: 243px;
+            position: absolute;
+            background: #6D6C6C;
+            box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+        }
+
+        .card-expiry {
+            left: 313px;
+            top: 284px;
+            position: absolute;
+            text-align: center;
+            color: rgba(68, 68, 68, 0.70);
+            font-size: 3px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .card-name {
+            left: 254px;
+            top: 290px;
+            position: absolute;
+            text-align: center;
+            color: rgba(67.99, 67.61, 67.61, 0.70);
+            font-size: 3px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .bank-name {
+            left: 304px;
+            top: 252px;
+            position: absolute;
+            text-align: center;
+            color: rgba(67.99, 67.61, 67.61, 0.70);
+            font-size: 5px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .card-number {
+            width: 95px;
+            left: 251px;
+            top: 274px;
+            position: absolute;
+            text-align: center;
+            color: rgba(67.99, 67.61, 67.61, 0.70);
+            font-size: 5px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .chip {
+            width: 17px;
+            height: 12px;
+            left: 254px;
+            top: 258px;
+            position: absolute;
+            background: rgba(255, 207.45, 104.83, 0.70);
+            border-radius: 4px;
+        }
+
+        .chip-line {
+            width: 9px;
+            height: 0px;
+            left: 256px;
+            top: 260px;
+            position: absolute;
+            transform: rotate(90deg);
+            transform-origin: 0 0;
+        }
+
+        .circle1 {
+            width: 8px;
+            height: 7px;
+            left: 328px;
+            top: 287px;
+            position: absolute;
+            background: rgba(87.11, 87.11, 87.11, 0.70);
+            border-radius: 9999px;
+        }
+
+        .circle2 {
+            width: 8px;
+            height: 7px;
+            left: 334px;
+            top: 287px;
+            position: absolute;
+            background: rgba(68, 68, 68, 0.70);
+            border-radius: 9999px;
+        }
+
+        .small-line1,
+        .small-line2 {
+            width: 4px;
+            height: 0px;
+            left: 308px;
+            position: absolute;
+            border: 1px #444444 solid;
+        }
+
+        .small-line1 {
+            top: 286px;
+        }
+
+        .small-line2 {
+            top: 287px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="receipt-box">
+            <div class="receipt-background"></div>
+            <div class="thank-you-text">THANK YOU FOR USING INFOSUPER BANK</div>
+            <div class="retrieve-card-text">DO NOT FORGET TO RETRIEVE YOUR ATM CARD</div>
+        </div>
+        <div class="button button-right-top"></div>
+        <div class="button button-right-bottom"></div>
+        <div class="button button-left-top"></div>
+        <div class="button button-left-bottom"></div>
+        <div class="transaction-title">TRANSACTION FEEDBACK</div>
+        <div class="location-date" id="currentDate"></div>
+        <div class="card-shadow"></div>
+        <div class="card-stripe"></div>
+        <div class="card-stripe-light"></div>
+        <div class="card"></div>
+        <div class="card-expiry">11/26</div>
+        <div class="card-name">PRINCE MACBAY</div>
+        <div class="bank-name">INFOSUPER BANK</div>
+        <div class="card-number">4539 1234 5678 9000 0000 8936</div>
+        <div class="chip"></div>
+        <div class="chip-line"></div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="small-line1"></div>
+        <div class="small-line2"></div>
+    </div>
+
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+    </script>
+</body>
+
+</html>

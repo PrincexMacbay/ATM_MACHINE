@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Transaction</title>
+    <style>
+        /* Main Container */
+        .container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+        }
+
+        /* Inner Dark Box */
+        .inner-box {
+            width: 398px;
+            height: 325px;
+            position: absolute;
+            left: 95px;
+            top: 79px;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        /* Buttons */
+        .button-large {
+            width: 150px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-medium {
+            width: 127px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-small {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        /* Text Styles */
+        .title {
+            position: absolute;
+            left: 178px;
+            top: 144px;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            position: absolute;
+            left: 100px;
+            top: 88px;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        .option-label {
+            position: absolute;
+            color: black;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .instruction {
+            position: absolute;
+            left: 170px;
+            top: 183px;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 14px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-box"></div>
+        <div class="button-large" style="left: 95px; top: 345px;"></div>
+        <div class="button-medium" style="left: 366px; top: 271px;"></div>
+        <div class="button-small" style="left: 516px; top: 271px;"></div>
+        <div class="button-small" style="left: 516px; top: 353px;"></div>
+        <div class="button-small" style="left: 18px; top: 271px;" onclick="window.location.href='account_type.html';"
+            style="cursor: pointer"></div>
+        <div class="button-small" style="left: 18px; top: 345px;"></div>
+        <div class="button-large" style="left: 94px; top: 271px;"></div>
+        <div class="button-medium" style="left: 366px; top: 353px;"></div>
+        <div class="title">SELECT TRANSACTION</div>
+        <div class="location-date" id="currentDate"></div>
+        <div class="option-label" style="left: 95px; top: 278px;">CASH WITHDRAWALS</div>
+        <div class="option-label" style="left: 109px; top: 351px;">TRANSFER</div>
+        <div class="option-label" style="left: 386px; top: 278px;">CASH DEPOSIT</div>
+        <div class="option-label" style="left: 397px; top: 361px;">CHANGE PIN</div>
+        <div class="instruction">PRESS BUTTON TO SELECT OPTION</div>
+    </div>
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+    </script>
+</body>
+
+</html>

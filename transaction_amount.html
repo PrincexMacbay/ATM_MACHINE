@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Transaction Amount</title>
+    <style>
+        /* Main Container */
+        .container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+        }
+
+        /* Inner Box */
+        .inner-box {
+            width: 398px;
+            height: 308px;
+            position: absolute;
+            left: 95px;
+            top: 79px;
+        }
+
+        .inner-background {
+            width: 398px;
+            height: 308px;
+            position: absolute;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        /* Buttons */
+        .button-large {
+            width: 111px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-medium {
+            width: 115px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-small {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        /* Text Styles */
+        .title {
+            width: 290px;
+            position: absolute;
+            left: 156px;
+            top: 130px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            position: absolute;
+            left: 100px;
+            top: 88px;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        .instruction {
+            width: 211px;
+            position: absolute;
+            left: 100px;
+            top: 113px;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .option-label {
+            position: absolute;
+            color: black;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .balance {
+            width: 211px;
+            position: absolute;
+            left: 100px;
+            top: 140px;
+            /* Adjust as needed to place below instruction */
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 14px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+    </style>
+    <script>
+        // Initialize available balance from localStorage or set default if not exists
+        let availableBalance = localStorage.getItem('availableBalance') || 4500;
+        availableBalance = parseFloat(availableBalance); // Convert to number
+
+        // Function to handle withdrawal
+        function withdraw(amount) {
+            if (amount <= availableBalance) {
+                availableBalance -= amount; // Deduct the amount
+                localStorage.setItem('availableBalance', availableBalance); // Save to localStorage
+                window.location.href = 'successful_transaction.html';
+            } else {
+                window.location.href = 'insufficient_funds.html';
+            }
+        }
+
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Function to display available balance
+        function displayBalance() {
+            document.getElementById('balance').textContent = `Available Balance: $${availableBalance}`;
+        }
+
+        // Call the functions to display the date and balance
+        displayCurrentDate();
+        displayBalance();
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-box">
+            <div class="inner-background"></div>
+            <div class="instruction">PRESS BUTTON TO SELECT OPTION</div>
+            <!-- Display available balance here -->
+            <div id="balance" class="balance"></div>
+        </div>
+        <div class="button-large" style="left: 95px; top: 345px;"></div>
+        <div class="button-medium" style="left: 378px; top: 345px;"></div>
+        <div class="button-medium" style="left: 378px; top: 279px;"></div>
+        <div class="button-small" style="left: 510px; top: 279px;" onclick="withdraw(5000);"></div>
+        <div class="button-small" style="left: 510px; top: 345px;" onclick="withdraw(10000);"></div>
+        <div class="button-small" style="left: 23px; top: 279px;" onclick="withdraw(500);"></div>
+        <div class="button-small" style="left: 23px; top: 345px;" onclick="withdraw(1000);"></div>
+        <div class="button-large" style="left: 95px; top: 279px;"></div>
+        <div class="title">SELECT THE NUMBER OF CASH PACKAGES</div>
+        <div class="location-date" id="currentDate"></div>
+        <div class="option-label" style="left: 107px; top: 285px;">500.00</div>
+        <div class="option-label" style="left: 105px; top: 351px;">1000.00</div>
+        <div class="option-label" style="left: 420px; top: 285px;">5000.00</div>
+        <div class="option-label" style="left: 410px; top: 351px;">10,000.00</div>
+    </div>
+
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+
+        // Function to display available balance
+        function displayBalance() {
+            document.getElementById('balance').textContent = `Available Balance: $${availableBalance}`;
+        }
+
+        // Call the function to display the balance
+        displayBalance();
+    </script>
+</body>
+
+</html>

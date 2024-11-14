@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remaining Balance</title>
+    <style>
+        /* Main Container */
+        .container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+        }
+
+        /* Inner Box */
+        .inner-box {
+            width: 398px;
+            height: 328px;
+            position: absolute;
+            left: 95px;
+            top: 79px;
+        }
+
+        .inner-background {
+            width: 398px;
+            height: 328px;
+            position: absolute;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        /* Buttons */
+        .button-large {
+            width: 67px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-small {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        /* Text Styles */
+        .title {
+            width: 328px;
+            position: absolute;
+            left: 132px;
+            top: 123px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            position: absolute;
+            left: 100px;
+            top: 87px;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        .instruction {
+            width: 276px;
+            height: 15px;
+            position: absolute;
+            left: 61px;
+            top: 76px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .balance-label {
+            width: 328px;
+            position: absolute;
+            left: 35px;
+            top: 139px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .balance-amount {
+            position: absolute;
+            left: 134px;
+            top: 164px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+
+        .button-text {
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-box">
+            <div class="inner-background"></div>
+            <div class="instruction">PRESS BUTTON TO SELECT OPTION</div>
+            <div class="balance-label">YOUR AVAILABLE BALANCE:</div>
+            <div class="balance-amount">NGN 100, 000, 500.00</div>
+        </div>
+        <div class="button-large" style="left: 426px; top: 353px;"></div>
+        <div class="button-small" style="left: 516px; top: 293px;"></div>
+        <div class="button-small" style="left: 516px; top: 353px;" onclick="window.location.href='final.html';"
+            style="cursor: pointer"></div>
+        <div class="button-small" style="left: 18px; top: 293px;"></div>
+        <div class="button-small" style="left: 18px; top: 359px;"></div>
+        <div class="title">AVAILABLE BALANCE</div>
+        <div class="location-date" id="currentDate"></div>
+        <div class="button-text" style="left: 446px; top: 359px;">EXIT</div>
+    </div>
+
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+    </script>
+</body>
+
+</html>

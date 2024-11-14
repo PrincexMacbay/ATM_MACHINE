@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declined Transaction</title>
+    <style>
+        /* Main Container */
+        .container {
+            width: 588px;
+            height: 467px;
+            position: relative;
+            background: #006400;
+        }
+
+        /* Inner Box */
+        .inner-box {
+            width: 398px;
+            height: 328px;
+            position: absolute;
+            left: 95px;
+            top: 79px;
+        }
+
+        .inner-background {
+            width: 398px;
+            height: 328px;
+            position: absolute;
+            background: #2F2F2F;
+            border-radius: 4px;
+        }
+
+        /* Buttons */
+        .button-large {
+            width: 67px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+        }
+
+        .button-small {
+            width: 54px;
+            height: 28px;
+            position: absolute;
+            background: #AFAFAF;
+            border-radius: 4px;
+        }
+
+        .deposit-funds {
+            width: 162px;
+            height: 28px;
+            position: absolute;
+            background: #EAEAEA;
+            border-radius: 8px;
+            left: 331px;
+            top: 293px;
+        }
+
+        /* Text Styles */
+        .title {
+            width: 328px;
+            position: absolute;
+            left: 132px;
+            top: 123px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .location-date {
+            width: 124px;
+            position: absolute;
+            left: 100px;
+            top: 87px;
+            color: white;
+            font-size: 10px;
+            font-family: Inter;
+            font-style: italic;
+            font-weight: 200;
+            word-wrap: break-word;
+        }
+
+        .instruction {
+            width: 276px;
+            height: 64px;
+            position: absolute;
+            left: 55px;
+            top: 156px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        .button-text {
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 12px;
+            font-family: Inter;
+            font-weight: 700;
+            word-wrap: break-word;
+        }
+
+        /* Declined Circle */
+        .declined-circle {
+            width: 63px;
+            height: 52px;
+            position: absolute;
+            left: 262px;
+            top: 176px;
+            background: #FF0000;
+            border-radius: 50%;
+        }
+
+        .cross-line-1 {
+            width: 36.07px;
+            height: 0;
+            position: absolute;
+            left: 270px;
+            top: 197px;
+            transform: rotate(-46.12deg);
+            border: 5px #EAEAEA solid;
+        }
+
+        .cross-line-2 {
+            width: 36.07px;
+            height: 0;
+            position: absolute;
+            left: 270px;
+            top: 200px;
+            transform: rotate(-133.16deg);
+            border: 5px #EAEAEA solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-box">
+            <div class="inner-background"></div>
+            <div class="instruction">YOUR TRANSACTION WAS DECLINED DUE TO INSUFFICIENT FUNDS</div>
+        </div>
+        <div class="button-large" style="left: 426px; top: 353px;"></div>
+        <div class="button-small" style="left: 516px; top: 293px;"></div>
+        <div class="button-small" style="left: 516px; top: 353px;" onclick="window.location.href='final.html';"></div>
+        //
+        <div class="button-small" style="left: 18px; top: 293px;"></div>
+        <div class="button-small" style="left: 18px; top: 359px;"></div>
+        <div class="deposit-funds"></div>
+        <div class="title">YOUR TRANSACTION WAS DECLINED!</div>
+        <div class="location-date" id="currentDate"></div>
+        <div class="button-text" style="left: 363px; top: 299px;">DEPOSIT FUNDS</div>
+        <div class="button-text" style="left: 446px; top: 359px;">EXIT</div>
+        <div class="declined-circle"></div>
+        <div class="cross-line-1"></div>
+        <div class="cross-line-2"></div>
+    </div>
+
+    <script>
+        // JavaScript to get the current date and format it
+        function displayCurrentDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+
+            document.getElementById('currentDate').textContent = `Delta State, PTI Road ${formattedDate}`;
+        }
+
+        // Call the function to display the date
+        displayCurrentDate();
+    </script>
+</body>
+
+</html>
